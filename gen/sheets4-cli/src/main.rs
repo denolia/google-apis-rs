@@ -1768,7 +1768,7 @@ async fn main() {
                      Some(false)),
                   ]),
             ("get",
-                    Some(r##"Returns the spreadsheet at the given ID. The caller must specify the spreadsheet ID. By default, data within grids is not returned. You can include grid data in one of 2 ways: * Specify a [field mask](https://developers.google.com/sheets/api/guides/field-masks) listing your desired fields using the `fields` URL parameter in HTTP * Set the includeGridData URL parameter to true. If a field mask is set, the `includeGridData` parameter is ignored For large spreadsheets, as a best practice, retrieve only the specific spreadsheet fields that you want. To retrieve only subsets of spreadsheet data, use the ranges URL parameter. Ranges are specified using [A1 notation](/sheets/api/guides/concepts#cell). You can define a single cell (for example, `A1`) or multiple cells (for example, `A1:D5`). You can also get cells from other sheets within the same spreadsheet (for example, `Sheet2!A1:C4`) or retrieve multiple ranges at once (for example, `?ranges=A1:D5&ranges=Sheet2!A1:C4`). Limiting the range returns only the portions of the spreadsheet that intersect the requested ranges."##),
+                    Some(r##"Returns the spreadsheet at the given ID. The caller must specify the spreadsheet ID. By default, data within grids is not returned. You can include grid data in one of 2 ways: * Specify a [field mask](https://developers.google.com/sheets/api/guides/field-masks) listing your desired fields using the `fields` URL parameter in HTTP * Set the includeGridData URL parameter to true. If a field mask is set, the `includeGridData` parameter is ignored For large spreadsheets, as a best practice, retrieve only the specific spreadsheet fields that you want. To retrieve only subsets of spreadsheet data, use the ranges URL parameter. Ranges are specified using [A1 notation](https://developers.google.com/sheets/api/guides/concepts#cell). You can define a single cell (for example, `A1`) or multiple cells (for example, `A1:D5`). You can also get cells from other sheets within the same spreadsheet (for example, `Sheet2!A1:C4`) or retrieve multiple ranges at once (for example, `?ranges=A1:D5&ranges=Sheet2!A1:C4`). Limiting the range returns only the portions of the spreadsheet that intersect the requested ranges."##),
                     "Details at http://byron.github.io/google-apis-rs/google_sheets4_cli/spreadsheets_get",
                   vec![
                     (Some(r##"spreadsheet-id"##),
@@ -1852,7 +1852,7 @@ async fn main() {
                      Some(false)),
                   ]),
             ("values-append",
-                    Some(r##"Appends values to a spreadsheet. The input range is used to search for existing data and find a "table" within that range. Values will be appended to the next row of the table, starting with the first column of the table. See the [guide](/sheets/api/guides/values#appending_values) and [sample code](/sheets/api/samples/writing#append_values) for specific details of how tables are detected and data is appended. The caller must specify the spreadsheet ID, range, and a valueInputOption. The `valueInputOption` only controls how the input data will be added to the sheet (column-wise or row-wise), it does not influence what cell the data starts being written to."##),
+                    Some(r##"Appends values to a spreadsheet. The input range is used to search for existing data and find a "table" within that range. Values will be appended to the next row of the table, starting with the first column of the table. See the [guide](https://developers.google.com/sheets/api/guides/values#appending_values) and [sample code](https://developers.google.com/sheets/api/samples/writing#append_values) for specific details of how tables are detected and data is appended. The caller must specify the spreadsheet ID, range, and a valueInputOption. The `valueInputOption` only controls how the input data will be added to the sheet (column-wise or row-wise), it does not influence what cell the data starts being written to."##),
                     "Details at http://byron.github.io/google-apis-rs/google_sheets4_cli/spreadsheets_values-append",
                   vec![
                     (Some(r##"spreadsheet-id"##),
@@ -1863,7 +1863,7 @@ async fn main() {
         
                     (Some(r##"range"##),
                      None,
-                     Some(r##"The [A1 notation](/sheets/api/guides/concepts#cell) of a range to search for a logical table of data. Values are appended after the last row of the table."##),
+                     Some(r##"The [A1 notation](https://developers.google.com/sheets/api/guides/concepts#cell) of a range to search for a logical table of data. Values are appended after the last row of the table."##),
                      Some(true),
                      Some(false)),
         
@@ -2059,7 +2059,7 @@ async fn main() {
         
                     (Some(r##"range"##),
                      None,
-                     Some(r##"The [A1 notation or R1C1 notation](/sheets/api/guides/concepts#cell) of the values to clear."##),
+                     Some(r##"The [A1 notation or R1C1 notation](https://developers.google.com/sheets/api/guides/concepts#cell) of the values to clear."##),
                      Some(true),
                      Some(false)),
         
@@ -2093,7 +2093,7 @@ async fn main() {
         
                     (Some(r##"range"##),
                      None,
-                     Some(r##"The [A1 notation or R1C1 notation](/sheets/api/guides/concepts#cell) of the range to retrieve values from."##),
+                     Some(r##"The [A1 notation or R1C1 notation](https://developers.google.com/sheets/api/guides/concepts#cell) of the range to retrieve values from."##),
                      Some(true),
                      Some(false)),
         
@@ -2121,7 +2121,7 @@ async fn main() {
         
                     (Some(r##"range"##),
                      None,
-                     Some(r##"The [A1 notation](/sheets/api/guides/concepts#cell) of the values to update."##),
+                     Some(r##"The [A1 notation](https://developers.google.com/sheets/api/guides/concepts#cell) of the values to update."##),
                      Some(true),
                      Some(false)),
         

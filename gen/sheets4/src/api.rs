@@ -948,7 +948,7 @@ impl client::RequestValue for BatchClearValuesByDataFilterRequest {}
 #[serde_with::serde_as(crate = "::client::serde_with")]
 #[derive(Default, Clone, Debug, Serialize, Deserialize)]
 pub struct BatchClearValuesByDataFilterResponse {
-    /// The ranges that were cleared, in [A1 notation](/sheets/api/guides/concepts#cell). If the requests are for an unbounded range or a ranger larger than the bounds of the sheet, this is the actual ranges that were cleared, bounded to the sheet's limits.
+    /// The ranges that were cleared, in [A1 notation](https://developers.google.com/sheets/api/guides/concepts#cell). If the requests are for an unbounded range or a ranger larger than the bounds of the sheet, this is the actual ranges that were cleared, bounded to the sheet's limits.
     #[serde(rename="clearedRanges")]
     
     pub cleared_ranges: Option<Vec<String>>,
@@ -973,7 +973,7 @@ impl client::ResponseResult for BatchClearValuesByDataFilterResponse {}
 #[serde_with::serde_as(crate = "::client::serde_with")]
 #[derive(Default, Clone, Debug, Serialize, Deserialize)]
 pub struct BatchClearValuesRequest {
-    /// The ranges to clear, in [A1 notation or R1C1 notation](/sheets/api/guides/concepts#cell).
+    /// The ranges to clear, in [A1 notation or R1C1 notation](https://developers.google.com/sheets/api/guides/concepts#cell).
     
     pub ranges: Option<Vec<String>>,
 }
@@ -2042,7 +2042,7 @@ impl client::Part for Color {}
 #[serde_with::serde_as(crate = "::client::serde_with")]
 #[derive(Default, Clone, Debug, Serialize, Deserialize)]
 pub struct ColorStyle {
-    /// RGB color. The [`alpha`](/sheets/api/reference/rest/v4/spreadsheets/other#Color.FIELDS.alpha) value in the [`Color`](/sheets/api/reference/rest/v4/spreadsheets/other#color) object isn't generally supported.
+    /// RGB color. The [`alpha`](https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/other#Color.FIELDS.alpha) value in the [`Color`](https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/other#color) object isn't generally supported.
     #[serde(rename="rgbColor")]
     
     pub rgb_color: Option<Color>,
@@ -4097,7 +4097,7 @@ impl client::Part for NamedRange {}
 #[serde_with::serde_as(crate = "::client::serde_with")]
 #[derive(Default, Clone, Debug, Serialize, Deserialize)]
 pub struct NumberFormat {
-    /// Pattern string used for formatting. If not set, a default pattern based on the user's locale will be used if necessary for the given type. See the [Date and Number Formats guide](/sheets/api/guides/formats) for more information about the supported patterns.
+    /// Pattern string used for formatting. If not set, a default pattern based on the user's locale will be used if necessary for the given type. See the [Date and Number Formats guide](https://developers.google.com/sheets/api/guides/formats) for more information about the supported patterns.
     
     pub pattern: Option<String>,
     /// The type of the number format. When writing, this field must be set.
@@ -6355,7 +6355,7 @@ pub struct UpdateValuesByDataFilterResponse {
     #[serde(rename="updatedData")]
     
     pub updated_data: Option<ValueRange>,
-    /// The range (in [A1 notation](/sheets/api/guides/concepts#cell)) that updates were applied to.
+    /// The range (in [A1 notation](https://developers.google.com/sheets/api/guides/concepts#cell)) that updates were applied to.
     #[serde(rename="updatedRange")]
     
     pub updated_range: Option<String>,
@@ -6427,7 +6427,7 @@ pub struct ValueRange {
     #[serde(rename="majorDimension")]
     
     pub major_dimension: Option<String>,
-    /// The range the values cover, in [A1 notation](/sheets/api/guides/concepts#cell). For output, this range indicates the entire requested range, even though the values will exclude trailing rows and columns. When appending values, this field represents the range to search for a table, after which values will be appended.
+    /// The range the values cover, in [A1 notation](https://developers.google.com/sheets/api/guides/concepts#cell). For output, this range indicates the entire requested range, even though the values will exclude trailing rows and columns. When appending values, this field represents the range to search for a table, after which values will be appended.
     
     pub range: Option<String>,
     /// The data that was read or to be written. This is an array of arrays, the outer array representing all the data and each inner array representing a major dimension. Each item in the inner array corresponds with one cell. For output, empty trailing rows and columns will not be included. For input, supported value types are: bool, string, and double. Null values will be skipped. To set a cell to an empty value, set the string value to an empty string.
@@ -6683,13 +6683,13 @@ impl<'a, S> SpreadsheetMethods<'a, S> {
     
     /// Create a builder to help you perform the following task:
     ///
-    /// Appends values to a spreadsheet. The input range is used to search for existing data and find a "table" within that range. Values will be appended to the next row of the table, starting with the first column of the table. See the [guide](/sheets/api/guides/values#appending_values) and [sample code](/sheets/api/samples/writing#append_values) for specific details of how tables are detected and data is appended. The caller must specify the spreadsheet ID, range, and a valueInputOption. The `valueInputOption` only controls how the input data will be added to the sheet (column-wise or row-wise), it does not influence what cell the data starts being written to.
+    /// Appends values to a spreadsheet. The input range is used to search for existing data and find a "table" within that range. Values will be appended to the next row of the table, starting with the first column of the table. See the [guide](https://developers.google.com/sheets/api/guides/values#appending_values) and [sample code](https://developers.google.com/sheets/api/samples/writing#append_values) for specific details of how tables are detected and data is appended. The caller must specify the spreadsheet ID, range, and a valueInputOption. The `valueInputOption` only controls how the input data will be added to the sheet (column-wise or row-wise), it does not influence what cell the data starts being written to.
     /// 
     /// # Arguments
     ///
     /// * `request` - No description provided.
     /// * `spreadsheetId` - The ID of the spreadsheet to update.
-    /// * `range` - The [A1 notation](/sheets/api/guides/concepts#cell) of a range to search for a logical table of data. Values are appended after the last row of the table.
+    /// * `range` - The [A1 notation](https://developers.google.com/sheets/api/guides/concepts#cell) of a range to search for a logical table of data. Values are appended after the last row of the table.
     pub fn values_append(&self, request: ValueRange, spreadsheet_id: &str, range: &str) -> SpreadsheetValueAppendCall<'a, S> {
         SpreadsheetValueAppendCall {
             hub: self.hub,
@@ -6831,7 +6831,7 @@ impl<'a, S> SpreadsheetMethods<'a, S> {
     ///
     /// * `request` - No description provided.
     /// * `spreadsheetId` - The ID of the spreadsheet to update.
-    /// * `range` - The [A1 notation or R1C1 notation](/sheets/api/guides/concepts#cell) of the values to clear.
+    /// * `range` - The [A1 notation or R1C1 notation](https://developers.google.com/sheets/api/guides/concepts#cell) of the values to clear.
     pub fn values_clear(&self, request: ClearValuesRequest, spreadsheet_id: &str, range: &str) -> SpreadsheetValueClearCall<'a, S> {
         SpreadsheetValueClearCall {
             hub: self.hub,
@@ -6851,7 +6851,7 @@ impl<'a, S> SpreadsheetMethods<'a, S> {
     /// # Arguments
     ///
     /// * `spreadsheetId` - The ID of the spreadsheet to retrieve data from.
-    /// * `range` - The [A1 notation or R1C1 notation](/sheets/api/guides/concepts#cell) of the range to retrieve values from.
+    /// * `range` - The [A1 notation or R1C1 notation](https://developers.google.com/sheets/api/guides/concepts#cell) of the range to retrieve values from.
     pub fn values_get(&self, spreadsheet_id: &str, range: &str) -> SpreadsheetValueGetCall<'a, S> {
         SpreadsheetValueGetCall {
             hub: self.hub,
@@ -6874,7 +6874,7 @@ impl<'a, S> SpreadsheetMethods<'a, S> {
     ///
     /// * `request` - No description provided.
     /// * `spreadsheetId` - The ID of the spreadsheet to update.
-    /// * `range` - The [A1 notation](/sheets/api/guides/concepts#cell) of the values to update.
+    /// * `range` - The [A1 notation](https://developers.google.com/sheets/api/guides/concepts#cell) of the values to update.
     pub fn values_update(&self, request: ValueRange, spreadsheet_id: &str, range: &str) -> SpreadsheetValueUpdateCall<'a, S> {
         SpreadsheetValueUpdateCall {
             hub: self.hub,
@@ -6929,7 +6929,7 @@ impl<'a, S> SpreadsheetMethods<'a, S> {
     
     /// Create a builder to help you perform the following task:
     ///
-    /// Returns the spreadsheet at the given ID. The caller must specify the spreadsheet ID. By default, data within grids is not returned. You can include grid data in one of 2 ways: * Specify a [field mask](https://developers.google.com/sheets/api/guides/field-masks) listing your desired fields using the `fields` URL parameter in HTTP * Set the includeGridData URL parameter to true. If a field mask is set, the `includeGridData` parameter is ignored For large spreadsheets, as a best practice, retrieve only the specific spreadsheet fields that you want. To retrieve only subsets of spreadsheet data, use the ranges URL parameter. Ranges are specified using [A1 notation](/sheets/api/guides/concepts#cell). You can define a single cell (for example, `A1`) or multiple cells (for example, `A1:D5`). You can also get cells from other sheets within the same spreadsheet (for example, `Sheet2!A1:C4`) or retrieve multiple ranges at once (for example, `?ranges=A1:D5&ranges=Sheet2!A1:C4`). Limiting the range returns only the portions of the spreadsheet that intersect the requested ranges.
+    /// Returns the spreadsheet at the given ID. The caller must specify the spreadsheet ID. By default, data within grids is not returned. You can include grid data in one of 2 ways: * Specify a [field mask](https://developers.google.com/sheets/api/guides/field-masks) listing your desired fields using the `fields` URL parameter in HTTP * Set the includeGridData URL parameter to true. If a field mask is set, the `includeGridData` parameter is ignored For large spreadsheets, as a best practice, retrieve only the specific spreadsheet fields that you want. To retrieve only subsets of spreadsheet data, use the ranges URL parameter. Ranges are specified using [A1 notation](https://developers.google.com/sheets/api/guides/concepts#cell). You can define a single cell (for example, `A1`) or multiple cells (for example, `A1:D5`). You can also get cells from other sheets within the same spreadsheet (for example, `Sheet2!A1:C4`) or retrieve multiple ranges at once (for example, `?ranges=A1:D5&ranges=Sheet2!A1:C4`). Limiting the range returns only the portions of the spreadsheet that intersect the requested ranges.
     /// 
     /// # Arguments
     ///
@@ -7841,7 +7841,7 @@ where
 }
 
 
-/// Appends values to a spreadsheet. The input range is used to search for existing data and find a "table" within that range. Values will be appended to the next row of the table, starting with the first column of the table. See the [guide](/sheets/api/guides/values#appending_values) and [sample code](/sheets/api/samples/writing#append_values) for specific details of how tables are detected and data is appended. The caller must specify the spreadsheet ID, range, and a valueInputOption. The `valueInputOption` only controls how the input data will be added to the sheet (column-wise or row-wise), it does not influence what cell the data starts being written to.
+/// Appends values to a spreadsheet. The input range is used to search for existing data and find a "table" within that range. Values will be appended to the next row of the table, starting with the first column of the table. See the [guide](https://developers.google.com/sheets/api/guides/values#appending_values) and [sample code](https://developers.google.com/sheets/api/samples/writing#append_values) for specific details of how tables are detected and data is appended. The caller must specify the spreadsheet ID, range, and a valueInputOption. The `valueInputOption` only controls how the input data will be added to the sheet (column-wise or row-wise), it does not influence what cell the data starts being written to.
 ///
 /// A builder for the *values.append* method supported by a *spreadsheet* resource.
 /// It is not used directly, but through a [`SpreadsheetMethods`] instance.
@@ -8084,7 +8084,7 @@ where
         self._spreadsheet_id = new_value.to_string();
         self
     }
-    /// The [A1 notation](/sheets/api/guides/concepts#cell) of a range to search for a logical table of data. Values are appended after the last row of the table.
+    /// The [A1 notation](https://developers.google.com/sheets/api/guides/concepts#cell) of a range to search for a logical table of data. Values are appended after the last row of the table.
     ///
     /// Sets the *range* path property to the given value.
     ///
@@ -9001,7 +9001,7 @@ where
         self._value_render_option = Some(new_value.to_string());
         self
     }
-    /// The [A1 notation or R1C1 notation](/sheets/api/guides/concepts#cell) of the range to retrieve values from.
+    /// The [A1 notation or R1C1 notation](https://developers.google.com/sheets/api/guides/concepts#cell) of the range to retrieve values from.
     ///
     /// Append the given value to the *ranges* query property.
     /// Each appended value will retain its original ordering and be '/'-separated in the URL's parameters.
@@ -10189,7 +10189,7 @@ where
         self._spreadsheet_id = new_value.to_string();
         self
     }
-    /// The [A1 notation or R1C1 notation](/sheets/api/guides/concepts#cell) of the values to clear.
+    /// The [A1 notation or R1C1 notation](https://developers.google.com/sheets/api/guides/concepts#cell) of the values to clear.
     ///
     /// Sets the *range* path property to the given value.
     ///
@@ -10477,7 +10477,7 @@ where
         self._spreadsheet_id = new_value.to_string();
         self
     }
-    /// The [A1 notation or R1C1 notation](/sheets/api/guides/concepts#cell) of the range to retrieve values from.
+    /// The [A1 notation or R1C1 notation](https://developers.google.com/sheets/api/guides/concepts#cell) of the range to retrieve values from.
     ///
     /// Sets the *range* path property to the given value.
     ///
@@ -10821,7 +10821,7 @@ where
         self._spreadsheet_id = new_value.to_string();
         self
     }
-    /// The [A1 notation](/sheets/api/guides/concepts#cell) of the values to update.
+    /// The [A1 notation](https://developers.google.com/sheets/api/guides/concepts#cell) of the values to update.
     ///
     /// Sets the *range* path property to the given value.
     ///
@@ -11497,7 +11497,7 @@ where
 }
 
 
-/// Returns the spreadsheet at the given ID. The caller must specify the spreadsheet ID. By default, data within grids is not returned. You can include grid data in one of 2 ways: * Specify a [field mask](https://developers.google.com/sheets/api/guides/field-masks) listing your desired fields using the `fields` URL parameter in HTTP * Set the includeGridData URL parameter to true. If a field mask is set, the `includeGridData` parameter is ignored For large spreadsheets, as a best practice, retrieve only the specific spreadsheet fields that you want. To retrieve only subsets of spreadsheet data, use the ranges URL parameter. Ranges are specified using [A1 notation](/sheets/api/guides/concepts#cell). You can define a single cell (for example, `A1`) or multiple cells (for example, `A1:D5`). You can also get cells from other sheets within the same spreadsheet (for example, `Sheet2!A1:C4`) or retrieve multiple ranges at once (for example, `?ranges=A1:D5&ranges=Sheet2!A1:C4`). Limiting the range returns only the portions of the spreadsheet that intersect the requested ranges.
+/// Returns the spreadsheet at the given ID. The caller must specify the spreadsheet ID. By default, data within grids is not returned. You can include grid data in one of 2 ways: * Specify a [field mask](https://developers.google.com/sheets/api/guides/field-masks) listing your desired fields using the `fields` URL parameter in HTTP * Set the includeGridData URL parameter to true. If a field mask is set, the `includeGridData` parameter is ignored For large spreadsheets, as a best practice, retrieve only the specific spreadsheet fields that you want. To retrieve only subsets of spreadsheet data, use the ranges URL parameter. Ranges are specified using [A1 notation](https://developers.google.com/sheets/api/guides/concepts#cell). You can define a single cell (for example, `A1`) or multiple cells (for example, `A1:D5`). You can also get cells from other sheets within the same spreadsheet (for example, `Sheet2!A1:C4`) or retrieve multiple ranges at once (for example, `?ranges=A1:D5&ranges=Sheet2!A1:C4`). Limiting the range returns only the portions of the spreadsheet that intersect the requested ranges.
 ///
 /// A builder for the *get* method supported by a *spreadsheet* resource.
 /// It is not used directly, but through a [`SpreadsheetMethods`] instance.
