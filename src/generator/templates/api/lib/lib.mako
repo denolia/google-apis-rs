@@ -30,12 +30,16 @@
     response_trait_url = RESPONSE_MARKER_TRAIT
     part_trait_url = PART_MARKER_TRAIT
 
-    doc_base_url = util.doc_base_url() + '/' + to_extern_crate_name(util.crate_name()) + '/'
+    doc_domain = util.doc_base_url() + '/'
+    doc_base_url = doc_domain + to_extern_crate_name(util.crate_name()) + '/'
 
     def link(name, url):
         lf = '[%s](%s)'
         if rust_doc:
-            return lf % (name, url)
+            if url.startswith('/'):
+                return lf % (name, doc_domain + url)
+            else:
+                return lf % (name,  url)
         for scheme in ('http', 'https'):
             if url.startswith(scheme + '://'):
                 return lf % (name, url)
